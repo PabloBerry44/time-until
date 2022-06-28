@@ -95,10 +95,11 @@ function displayDays(){
 let counter
 function calculate(){
 
-    const selectedDate = new Date((selectedMonth+'/'+selectedDay+'/'+selectedYear).toString())
+    const selectedDate = (selectedMonth+'/'+selectedDay+'/'+selectedYear).toString()
     const sDate = new Date(selectedDate)
 
-    if(typeof sDate.getTime === 'function' && !isNaN(sDate)){
+
+    if(typeof sDate.getTime === 'function' && !isNaN(sDate) && sDate.getDate()==selectedDay){
 
         if(!(typeof counter === 'undefined')){
             clearInterval(counter)
