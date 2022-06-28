@@ -23,7 +23,8 @@ body{
     flex-direction: row;
     justify-content: space-evenly;
     gap: .4em;
-    padding: .4em;
+    width: 90%;
+    margin: auto;
 }
     .btnContainer div{
         background: rgb(231, 120, 138);
@@ -46,6 +47,7 @@ body{
     overflow: scroll;
     position: absolute;
     background: rgb(250, 184, 195);
+    margin-top: 1em;
 }
     .optionsContainer div{
         font-size: 1.4rem;
@@ -65,6 +67,8 @@ body{
 }
 .resultContainer{
     min-height: 300px;
+    width: 90%;
+    margin: auto;
 }
     .errorMsg{
         color: rgb(182, 0, 0);

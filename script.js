@@ -112,22 +112,34 @@ function calculate(){
         errorMsg.style.display = 'block'
     }
 
-
     function updateCountdown(){
 
         const cDate = new Date()
         const diff = sDate.getTime() - cDate.getTime()
         let secondsUntil = Math.ceil(diff / 1000)
+
+        let days
+        let hours
+        let minutes
+        let seconds
     
-        let days = secondsUntil/(60*60*24)
-        let hours = secondsUntil/(60*60) - Math.floor(days)*24
-        let minutes = secondsUntil/(60) - ((Math.floor(days)*24*60) + Math.floor(hours)*60)
-        let seconds = secondsUntil - ((Math.floor(days)*24*60*60) + Math.floor(hours)*60*60 + Math.floor(minutes)*60)
-        
+
+        days = secondsUntil/(60*60*24)
+        hours = secondsUntil/(60*60) - Math.floor(days)*24
+        minutes = secondsUntil/(60) - ((Math.floor(days)*24*60) + Math.floor(hours)*60)
+        seconds = secondsUntil - ((Math.floor(days)*24*60*60) + Math.floor(hours)*60*60 + Math.floor(minutes)*60) 
+
         days = Math.floor(days)
         hours = Math.floor(hours)
         minutes = Math.floor(minutes)
         seconds = Math.floor(seconds)
+
+        if(sDate < cDate){
+            days = -days-1
+            hours = 24-hours-1
+            minutes = 60-minutes-1
+            seconds = 60-seconds
+        }
 
         dayCount.innerHTML = days
         hourCount.innerHTML = hours
