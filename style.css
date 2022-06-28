@@ -2,6 +2,9 @@
     box-sizing: border-box;
     font-family: Helvetica;
 }
+body{
+    position: relative;
+}
 .btnContainer{
     display: flex;
     flex-direction: row;
@@ -28,9 +31,28 @@
     border-radius: 10px;
     flex-direction: column;
     overflow: scroll;
+    position: absolute;
+    background: rgb(241, 241, 241);
 }
     .optionsContainer div{
         font-size: 1.4rem;
         padding: .1em;
         text-align: center;
     }
+
+.calculateBtn{
+    margin-inline: auto;
+    margin-top: 1em;
+    background: gainsboro;
+    font-size: 1.5rem;
+    padding: .5em;
+    border-radius: 10px;
+    text-align: center;
+}
+.errorMsg{
+    color: rgb(182, 0, 0);
+    font-size: 1.4rem;
+    padding: .3em;
+    text-align: center;
+    display: none;
+}

@@ -1,8 +1,8 @@
 const yearBtn = document.querySelector('.year')
 const monthBtn = document.querySelector('.month')
 const dayBtn = document.querySelector('.day')
-
 const optionsContainer = document.querySelector('.optionsContainer')
+const errorMsg = document.querySelector('.errorMsg')
 
 const years = []
 for(w=new Date().getFullYear(); w>=1900; w--){
@@ -48,7 +48,7 @@ function displayMonths(){
         monthNode.innerHTML = month
         monthNode.addEventListener('click', ()=>{
             monthBtn.innerHTML = month
-            selectedMonth = month
+            selectedMonth = months.indexOf(month)+1
             clearContainer()
         })
         optionsContainer.appendChild(monthNode)
@@ -66,4 +66,18 @@ function displayDays(){
         })
         optionsContainer.appendChild(dayNode)
     }
+}
+
+function calculate(){
+    const selectedDate = selectedYear+'-'+selectedMonth+'-'+selectedDay
+    
+    const date = new Date(selectedDate)
+    
+        if(typeof date.getTime === 'function' && !isNaN(date)){
+            errorMsg.style.display = 'none'
+        }
+        else{
+            errorMsg.style.display = 'block'
+        }
+
 }
