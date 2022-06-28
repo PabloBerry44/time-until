@@ -1,4 +1,10 @@
-#date{
-    font-size: 1.5rem;
-    padding: .3em;
+.dateForm{
+    display: flex;
+    gap: 1em;
+    flex-direction: column;
+    max-height: 100px;
+    overflow: hidden;
+}
+#year, #month, #day{
+    width: 100%;
 }
