@@ -20,7 +20,7 @@ body{
 }
 .btnContainer{
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     justify-content: space-evenly;
     gap: .4em;
     width: 90%;

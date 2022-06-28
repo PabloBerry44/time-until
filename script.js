@@ -111,6 +111,20 @@ function calculate(){
     }
     else{
         errorMsg.style.display = 'block'
+
+        dayCount.innerHTML=''
+        hourCount.innerHTML=''
+        minuteCount.innerHTML=''
+        secondCount.innerHTML=''
+
+        dayWord.innerHTML='' 
+        hourWord.innerHTML='' 
+        minuteWord.innerHTML='' 
+        secondWord.innerHTML='' 
+
+        if(!(typeof counter === 'undefined')){
+            clearInterval(counter)
+        }
     }
 
     function updateCountdown(){
