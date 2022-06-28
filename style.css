@@ -1,9 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
 *{
     box-sizing: border-box;
     font-family: Helvetica;
+    margin: 0;
 }
 body{
     position: relative;
+    background: papayawhip;
+}
+.bar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .3em;
+    font-size: 2rem;
+    font-family: 'Yellowtail', cursive;
+    background: papayawhip;
 }
 .btnContainer{
     display: flex;
@@ -13,10 +26,10 @@ body{
     padding: .4em;
 }
     .btnContainer div{
-        background: gainsboro;
+        background: rgb(231, 120, 138);
         font-size: 1.5rem;
         padding: .5em;
-        border-radius: 10px;
+        border-radius: 25px;
         text-align: center;
         width: 25%;
     }
@@ -25,14 +38,14 @@ body{
     }
 .optionsContainer{
     display: flex;
-    width: 100%;
+    width: 90%;
+    left: 5%;
     max-height: 200px;
-    border: 1px solid black;
     border-radius: 10px;
     flex-direction: column;
     overflow: scroll;
     position: absolute;
-    background: rgb(241, 241, 241);
+    background: rgb(250, 184, 195);
 }
     .optionsContainer div{
         font-size: 1.4rem;
@@ -43,16 +56,35 @@ body{
 .calculateBtn{
     margin-inline: auto;
     margin-top: 1em;
-    background: gainsboro;
+    background: rgb(231, 120, 138);
     font-size: 1.5rem;
     padding: .5em;
-    border-radius: 10px;
+    border-radius: 25px;
     text-align: center;
+    width: 90%;
 }
-.errorMsg{
-    color: rgb(182, 0, 0);
-    font-size: 1.4rem;
-    padding: .3em;
-    text-align: center;
-    display: none;
+.resultContainer{
+    min-height: 300px;
 }
+    .errorMsg{
+        color: rgb(182, 0, 0);
+        font-size: 1.4rem;
+        padding: .3em;
+        text-align: center;
+        display: none;
+    }
+.row{
+    display: flex;
+    flex-direction: row;
+    padding: 1em;
+    align-items: flex-end;
+
+}
+    .count{
+        font-size: 2rem;
+        line-height: .8em;
+    }
+    .word{
+        font-size: 1.3rem;
+        line-height: .8em;
+    }

@@ -9,7 +9,7 @@
     <title>How long until...</title>
 </head>
 <body>
-    
+    <div class="bar">How long until...</div>
     <div class="btnContainer">
         <div class="year">Year</div>
         <div class="month">Month</div>
@@ -20,8 +20,12 @@
 
     <div class="calculateBtn" onclick="calculate()">Calculate</div>
 
-    <div class="result">
+    <div class="resultContainer">
         <div class="errorMsg">No such date!</div>
+        <div class="row"><div class="dayCount count"></div><div class="dayWord word"></div></div>
+        <div class="row"><div class="hourCount count"></div><div class="hourWord word"></div></div>
+        <div class="row"><div class="minuteCount count"></div><div class="minuteWord word"></div></div>
+        <div class="row"><div class="secondCount count"></div><div class="secondWord word"></div></div>
     </div>
 
 </body>

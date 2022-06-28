@@ -3,9 +3,26 @@ const monthBtn = document.querySelector('.month')
 const dayBtn = document.querySelector('.day')
 const optionsContainer = document.querySelector('.optionsContainer')
 const errorMsg = document.querySelector('.errorMsg')
+const resultContainer = document.querySelector('.resultContainer')
+const counterP = document.querySelector('.counter')
+
+const dayCount = document.querySelector('.dayCount')
+const hourCount = document.querySelector('.hourCount')
+const minuteCount = document.querySelector('.minuteCount')
+const secondCount = document.querySelector('.secondCount')
+const dayWord = document.querySelector('.dayWord')
+const hourWord = document.querySelector('.hourWord')
+const minuteWord = document.querySelector('.minuteWord')
+const secondWord = document.querySelector('.secondWord')
+
+const current = new Date()
+
+const currentYear = current.getFullYear()
+const currentMonth = current.getMonth()+1
+const currentDay = current.getDate()
 
 const years = []
-for(w=new Date().getFullYear(); w>=1900; w--){
+for(w=2100; w>=1900; w--){
     years.push(w)
 }
 
@@ -28,6 +45,8 @@ function clearContainer(){
     }
 }
 
+resultContainer.addEventListener('click', clearContainer)
+
 function displayYears(){
     clearContainer()
     for (const year of years) {
@@ -39,7 +58,12 @@ function displayYears(){
             clearContainer()
         })
         optionsContainer.appendChild(yearNode)
+
+        if(year==currentYear){
+            yearNode.id = 'current'
+        }
     }
+    document.getElementById("current").scrollIntoView();
 }
 function displayMonths(){
     clearContainer()
@@ -68,16 +92,52 @@ function displayDays(){
     }
 }
 
+let counter
 function calculate(){
-    const selectedDate = selectedYear+'-'+selectedMonth+'-'+selectedDay
-    
-    const date = new Date(selectedDate)
-    
-        if(typeof date.getTime === 'function' && !isNaN(date)){
-            errorMsg.style.display = 'none'
-        }
-        else{
-            errorMsg.style.display = 'block'
+
+    const selectedDate = new Date((selectedMonth+'/'+selectedDay+'/'+selectedYear).toString())
+    const sDate = new Date(selectedDate)
+
+    if(typeof sDate.getTime === 'function' && !isNaN(sDate)){
+
+        if(!(typeof counter === 'undefined')){
+            clearInterval(counter)
         }
 
+        counter = setInterval(updateCountdown, 1000)
+
+        errorMsg.style.display = 'none'
+    }
+    else{
+        errorMsg.style.display = 'block'
+    }
+
+
+    function updateCountdown(){
+
+        const cDate = new Date()
+        const diff = sDate.getTime() - cDate.getTime()
+        let secondsUntil = Math.ceil(diff / 1000)
+    
+        let days = secondsUntil/(60*60*24)
+        let hours = secondsUntil/(60*60) - Math.floor(days)*24
+        let minutes = secondsUntil/(60) - ((Math.floor(days)*24*60) + Math.floor(hours)*60)
+        let seconds = secondsUntil - ((Math.floor(days)*24*60*60) + Math.floor(hours)*60*60 + Math.floor(minutes)*60)
+        
+        days = Math.floor(days)
+        hours = Math.floor(hours)
+        minutes = Math.floor(minutes)
+        seconds = Math.floor(seconds)
+
+        dayCount.innerHTML = days
+        hourCount.innerHTML = hours
+        minuteCount.innerHTML = minutes
+        secondCount.innerHTML = seconds
+
+        days==1 ? dayWord.innerHTML='&nbspday' : dayWord.innerHTML = '&nbspdays'
+        hours==1 ? hourWord.innerHTML='&nbsphour' : hourWord.innerHTML = '&nbsphours'
+        minutes==1 ? minuteWord.innerHTML='&nbspminute' : minuteWord.innerHTML = '&nbspminutes'
+        seconds==1 ? secondWord.innerHTML='&nbspsecond' : secondWord.innerHTML = '&nbspseconds'
+
+    }
 }
