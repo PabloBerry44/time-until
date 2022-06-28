@@ -1,19 +1,69 @@
-const yearSelect = document.getElementById('year')
-const monthSelect = document.getElementById('month')
-const daySelect = document.getElementById('day')
+const yearBtn = document.querySelector('.year')
+const monthBtn = document.querySelector('.month')
+const dayBtn = document.querySelector('.day')
 
-//add years as options
-for(q=new Date().getFullYear(); q>=1900; q--){
-    let yearOption = document.createElement('option')
-    yearOption.value = q
-    yearOption.innerHTML = q
-    yearSelect.appendChild(yearOption)
+const optionsContainer = document.querySelector('.optionsContainer')
+
+const years = []
+for(w=new Date().getFullYear(); w>=1900; w--){
+    years.push(w)
 }
 
-//add days as options
-for(w=1; w<=31; w++){
-    let dayOption = document.createElement('option')
-    dayOption.value = w
-    dayOption.innerHTML = w
-    daySelect.appendChild(dayOption)
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+const days = []
+for(q=1; q<=31; q++){
+    days.push(q)
+}
+
+let selectedYear, selectedMonth, selectedDay
+
+yearBtn.addEventListener('click', displayYears)
+monthBtn.addEventListener('click', displayMonths)
+dayBtn.addEventListener('click', displayDays)
+
+function clearContainer(){
+    while(optionsContainer.firstChild){
+        optionsContainer.removeChild(optionsContainer.lastChild)
+    }
+}
+
+function displayYears(){
+    clearContainer()
+    for (const year of years) {
+        const yearNode = document.createElement('div')
+        yearNode.innerHTML = year
+        yearNode.addEventListener('click', ()=>{
+            yearBtn.innerHTML = year
+            selectedYear = year
+            clearContainer()
+        })
+        optionsContainer.appendChild(yearNode)
+    }
+}
+function displayMonths(){
+    clearContainer()
+    for (const month of months) {
+        const monthNode = document.createElement('div')
+        monthNode.innerHTML = month
+        monthNode.addEventListener('click', ()=>{
+            monthBtn.innerHTML = month
+            selectedMonth = month
+            clearContainer()
+        })
+        optionsContainer.appendChild(monthNode)
+    }
+}
+function displayDays(){
+    clearContainer()
+    for (const day of days) {
+        const dayNode = document.createElement('div')
+        dayNode.innerHTML = day
+        dayNode.addEventListener('click', ()=>{
+            dayBtn.innerHTML = day
+            selectedDay = day
+            clearContainer()
+        })
+        optionsContainer.appendChild(dayNode)
+    }
 }

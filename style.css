@@ -1,10 +1,36 @@
-.dateForm{
+*{
+    box-sizing: border-box;
+    font-family: Helvetica;
+}
+.btnContainer{
     display: flex;
-    gap: 1em;
     flex-direction: row;
+    justify-content: space-evenly;
+    gap: .4em;
+    padding: .4em;
 }
-#year, #month, #day{
-    width: 33.33%;
-    font-size: 1.3rem;
-    text-align: center;
+    .btnContainer div{
+        background: gainsboro;
+        font-size: 1.5rem;
+        padding: .5em;
+        border-radius: 10px;
+        text-align: center;
+        width: 25%;
+    }
+    .month{
+        min-width: 50%;
+    }
+.optionsContainer{
+    display: flex;
+    width: 100%;
+    max-height: 200px;
+    border: 1px solid black;
+    border-radius: 10px;
+    flex-direction: column;
+    overflow: scroll;
 }
+    .optionsContainer div{
+        font-size: 1.4rem;
+        padding: .1em;
+        text-align: center;
+    }
