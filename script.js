@@ -43,6 +43,7 @@ function clearContainer(){
     while(optionsContainer.firstChild){
         optionsContainer.removeChild(optionsContainer.lastChild)
     }
+    optionsContainer.classList.remove('border')
 }
 
 resultContainer.addEventListener('click', clearContainer)
@@ -64,6 +65,7 @@ function displayYears(){
         }
     }
     document.getElementById("current").scrollIntoView();
+    optionsContainer.classList.add('border')
 }
 function displayMonths(){
     clearContainer()
@@ -77,6 +79,7 @@ function displayMonths(){
         })
         optionsContainer.appendChild(monthNode)
     }
+    optionsContainer.classList.add('border')
 }
 function displayDays(){
     clearContainer()
@@ -90,6 +93,7 @@ function displayDays(){
         })
         optionsContainer.appendChild(dayNode)
     }
+    optionsContainer.classList.add('border')
 }
 
 let counter

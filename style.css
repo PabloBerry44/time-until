@@ -46,13 +46,17 @@ body{
     flex-direction: column;
     overflow: scroll;
     position: absolute;
-    background: rgb(250, 184, 195);
+    background: pink;
     margin-top: 1em;
+    overflow-x: hidden;
 }
     .optionsContainer div{
         font-size: 1.4rem;
         padding: .1em;
         text-align: center;
+    }
+    .border{
+        border: 1px solid black;
     }
 
 .calculateBtn{
@@ -66,9 +70,12 @@ body{
     width: 90%;
 }
 .resultContainer{
-    min-height: 300px;
+    min-height: 230.4px;
     width: 90%;
     margin: auto;
+    margin-top: 1.5em;
+    background: pink;
+    border-radius: 25px;
 }
     .errorMsg{
         color: rgb(182, 0, 0);
@@ -77,18 +84,18 @@ body{
         text-align: center;
         display: none;
     }
-.row{
-    display: flex;
-    flex-direction: row;
-    padding: 1em;
-    align-items: flex-end;
-
-}
-    .count{
-        font-size: 2rem;
-        line-height: .8em;
+    .row{
+        display: flex;
+        flex-direction: row;
+        padding: 1em;
+        align-items: flex-end;
+        width: 50%;
     }
-    .word{
-        font-size: 1.3rem;
-        line-height: .8em;
-    }
+        .count{
+            font-size: 2rem;
+            line-height: .8em;
+        }
+        .word{
+            font-size: 1.3rem;
+            line-height: .8em;
+        }
