@@ -1,0 +1,2 @@
+<h1><a href="https://pabloberry44.github.io/time-until/">JS Count days until...</a></h1>
+<p>Simple script that calculates how much time there is to reach a specified date. The user can choose any date from past or future. Script will check if the date really exists (in case chosen date is 31st of February or any other not existing date) and display how many days, hours, minutes and seconds are there until specified day.</p>
